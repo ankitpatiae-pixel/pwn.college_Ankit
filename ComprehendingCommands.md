@@ -249,6 +249,60 @@ It is: pwn.college{8Fochw4Grjp1pfRuPkeRvmG0lCo.QX5IDO0wCN3AzNzEzW}
 ### New Learnings
 practice of 'cd' , 'cat' , 'ls' , 'ls-a'.
 
+## making directories
+
+create a /tmp/pwn directory and make a college file in it! Then run /challenge/run.
+
+### Solve
+**Flag:** pwn.college{Eh3HnVgyHE1ylyFCJng-O6nAQOJ.QXxMDO0wCN3AzNzEzW}
+
+changed directory to /tmp then created a pwn directory using 
+'mkdir' command then changed directory to /tmp/pwn then created a 'college' file using 'touch' command.
+
+```bash
+cd /tmp
+mkdir pwn
+touch college
+/challenge/run
+Success! Here is your flag:
+pwn.college{Eh3HnVgyHE1ylyFCJng-O6nAQOJ.QXxMDO0wCN3AzNzEzW}
+```
+
+### New Learnings
+I can create a dircectory using 'mkdir' command.
+
+
+## finding files
+
+The flag is hidden in a random directory on the filesystem. It's still called flag. Go find it!
+
+### Solve
+**Flag:** pwn.college{o6wDGaQYt1JUKLuEUJNCRegv9Id.QXyMDO0wCN3AzNzEzW}
+
+search the filesystem for flag using find command 
+
+```bash
+find / -name flag
+
+/usr/lib/jvm/java-17-openjdk-amd64/legal/java.security.jgss/flag
+/usr/local/lib/python3.8/dist-packages/pwnlib/flag
+.
+.
+.
+.
+/nix/store/dz2qxywk6d8hc1gkarpwbhyxb50sh2ak-pwntools-4.14.0/lib/python3.13/site-packages/pwnlib/flag
+
+cat /usr/lib/jvm/java-17-openjdk-amd64/legal/java.security.jgss/flag
+pwn.college{o6wDGaQYt1JUKLuEUJNCRegv9Id.QXyMDO0wCN3AzNzEzW}
+```
+
+### New Learnings
+i can search any directory using 'find' command.
+
+
+
+
+
 
 
 
