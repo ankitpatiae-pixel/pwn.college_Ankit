@@ -300,20 +300,22 @@ pwn.college{o6wDGaQYt1JUKLuEUJNCRegv9Id.QXyMDO0wCN3AzNzEzW}
 i can search any directory using 'find' command.
 
 
+## Linking files
 
+In this level the flag is, as always, in /flag, but /challenge/catflag will instead read out /home/hacker/not-the-flag. Use the symlink, and fool it into giving you the flag!
 
+### Solve
+**Flag:** pwn.college{URvJOZfRjuWQr9baqhwZbPRtBag.QX5ETN1wCN3AzNzEzW}
 
+Form a symbolic link to /flag with ~/not-the-flag then call /challenge/catflag.
 
+```bash
+ln -s /flag /home/hacker/not-the-flag
+/challenge/catflag
+About to read out the /home/hacker/not-the-flag file!
+pwn.college{URvJOZfRjuWQr9baqhwZbPRtBag.QX5ETN1wCN3AzNzEzW}
+```
 
-
-
-
-
-
-
-
-
-
-
-
+### New Learnings
+use of symbolic link to access file contents of one file from another.
 
