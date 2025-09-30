@@ -230,17 +230,36 @@ filter the file text using grep -v command with pipe operator.
 This process' /challenge/pwn must be piped into /challenge/college, but you'll need to intercept the data to see what pwn needs from you!
 
 ### Solve
-**Flag:** 
+**Flag:** pwn.college{w3BfXXBW22QPo1bv2xRJiul0XIT.QXxITO0wCN3AzNzEzW} 
 
-.
-
+passed /challenge/pwn --secret "w3BfXXBW" | tee flag | /challenge/college then cat /flag that gave me SECRET_ARG for /challenge/pwn then wrote in correct way to get flag. 
+/challenge/pwn --secret "w3BfXXBW" | tee flag | /challenge/college
 
 ```bash
+/challenge/pwn | tee flag | /challenge/college
 
+Processing...
+WARNING: you are overwriting file flag with tee's output...
+The input to 'college' does not contain the correct secret code! This code
+should be provided by the 'pwn' command. HINT: use 'tee' to intercept the
+output of 'pwn' and figure out what the code needs to be.
+
+cat flag
+
+Usage: /challenge/pwn --secret [SECRET_ARG]
+
+SECRET_ARG should be "w3BfXXBW"
+
+/challenge/pwn --secret "w3BfXXBW" | tee flag | /challenge/college
+Processing...
+WARNING: you are overwriting file flag with tee's output...
+Correct! Passing secret value to /challenge/college...
+Great job! Here is your flag:
+pwn.college{w3BfXXBW22QPo1bv2xRJiul0XIT.QXxITO0wCN3AzNzEzW}
 ```
 
 ### New Learnings
-
+intercepting data.
 
 
 ## Process substitution for input 
