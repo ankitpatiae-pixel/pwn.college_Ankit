@@ -50,6 +50,33 @@ redirected the flag from /challenge/run to myflag file as /challenge/run > myfla
 I can redirect contents of one file to other and access the output of first file through second.
 
 
+## Appending output
+
+If you properly redirect in append-mode, the second half will be appended to the first, but if you redirect in truncation mode (>), the second half will overwrite the first and you won't get the flag!
+
+### Solve
+**Flag:** pwn.college{UrpelzWmIca8At-NGAnrZENatEK.QX3ATO0wCN3AzNzEzW}
+
+appended /challenge/run to /home/hacker/the-flag then cat /home/hacker/the-flag. 
+
+```bash
+/challenge/run >> /home/hacker/the-flag
+cat /home/hacker/the-flag
+ |
+\|/ This is the first half:
+ v
+pwn.college{UrpelzWmIca8At-NGAnrZENatEK.QX3ATO0wCN3AzNzEzW}
+                              ^
+     that is the second half /|\
+                              |
+```
+
+### New Learnings
+Directing with >> appends the data not overwrite on the file.
+
+
+
+
 
 
 
