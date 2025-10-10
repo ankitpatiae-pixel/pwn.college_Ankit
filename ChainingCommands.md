@@ -1,4 +1,4 @@
-# Chaining commands
+vvv# Chaining commands
 
 ## Chaining with semicolons
 
@@ -89,3 +89,43 @@ pwn.college{46nny-kt9nqYeEwPHqOs0wfYFSC.QXxcDO0wCN3AzNzEzW}
 shell script .  shell scrips are named with sh suffix.
 
 
+## Redirecting script output 
+
+In this level, we will practice piping (|) from your script to another program. Like before, you need to create a script that calls the /challenge/pwn command followed by the /challenge/college command, and pipe the output of the script into a single invocation of the /challenge/solve command!
+
+### Solve
+**Flag:**  pwn.college{g14uAVGJZ2nXUV_7eoQoYTSILLH.QX4ETO0wCN3AzNzEzW}
+
+chained /challenge/pwn and /challenge/college and transfered it to shell x.sh as
+echo "/challenge/pwn; /challenge/college" > x.sh
+
+```bash
+echo "/challenge/pwn; /challenge/college" > x.sh
+bash x.sh | /challenge/solve
+Correct! Here is your flag:
+pwn.college{g14uAVGJZ2nXUV_7eoQoYTSILLH.QX4ETO0wCN3AzNzEzW}
+```
+
+### New Learnings
+I can now use piping to redirect outputs of a script to another command.
+
+
+## Executable shell scripts
+
+Same as last level, run /challenge/pwn and then /challenge/college,
+but this time in a shell script called x.sh, then run it with bash!
+
+### Solve
+**Flag:**  pwn.college{46nny-kt9nqYeEwPHqOs0wfYFSC.QXxcDO0wCN3AzNzEzW}
+
+chained /challenge/pwn and /challenge/college and transfered it to shell x.sh as
+echo "/challenge/pwn; /challenge/college" > x.sh
+
+```bash
+echo "/challenge/pwn; /challenge/college" > x.sh
+bash x.sh
+Great job, you've written your first shell script! Here is the flag:
+pwn.college{46nny-kt9nqYeEwPHqOs0wfYFSC.QXxcDO0wCN3AzNzEzW}
+```
+
+### New Learnings
