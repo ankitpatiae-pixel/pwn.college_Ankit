@@ -73,13 +73,19 @@ Same as last level, run /challenge/pwn and then /challenge/college,
 but this time in a shell script called x.sh, then run it with bash!
 
 ### Solve
-**Flag:**  
+**Flag:**  pwn.college{46nny-kt9nqYeEwPHqOs0wfYFSC.QXxcDO0wCN3AzNzEzW}
 
-
-
+chained /challenge/pwn and /challenge/college and transfered it to shell x.sh as
+echo "/challenge/pwn; /challenge/college" > x.sh
 
 ```bash
-
+echo "/challenge/pwn; /challenge/college" > x.sh
+bash x.sh
+Great job, you've written your first shell script! Here is the flag:
+pwn.college{46nny-kt9nqYeEwPHqOs0wfYFSC.QXxcDO0wCN3AzNzEzW}
 ```
 
 ### New Learnings
+shell script .  shell scrips are named with sh suffix.
+
+
