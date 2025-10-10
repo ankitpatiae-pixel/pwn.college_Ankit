@@ -107,3 +107,199 @@ Your general workflow should be:
 
 ### New Learnings
 
+
+## Suspending processes
+
+This level's run wants to see another copy of itself running and using the same terminal. How? Use the terminal to launch it, then suspend it, then launch another copy while the first is suspended!
+
+### Solve
+**Flag:**  pwn.college{cPRed4iKKftBuKhDj7yI0p6smZg.QX1QDO0wCN3AzNzEzW}
+
+running /challenge/run then suspending it using ctrl-Z then running a copy of the same process.
+
+```bash
+/challenge/run
+
+I'll only give you the flag if there's already another copy of me running in
+this terminal... Let's check!
+
+I don't see a second me!
+
+To pass this level, you need to suspend me and launch me again! You can
+background me with Ctrl-Z or, if you're not ready to do that for whatever
+reason, just hit Enter and I'll exit!
+^Z
+[1]+  Stopped                 /challenge/run
+
+/challenge/run
+
+I'll only give you the flag if there's already another copy of me running in
+this terminal... Let's check!
+
+Yay, I found another version of me! Here is the flag:
+pwn.college{cPRed4iKKftBuKhDj7yI0p6smZg.QX1QDO0wCN3AzNzEzW}
+```
+
+### New Learnings
+ctrl-Z can suspend a process to the backround.
+
+
+## Resuming processes
+
+This challenge's run needs you to suspend it, then resume it. Good luck!
+
+### Solve
+**Flag:**  pwn.college{YN3aeMbvsQwssp9jCg6vK-SNrdr.QX2QDO0wCN3AzNzEzW}
+
+suspending the process by pressing ctrl-Z and then resuming it using fg command.
+
+```bash
+/challenge/run
+
+Let's practice resuming processes! Suspend me with Ctrl-Z, then resume me with
+the 'fg' command! Or just press Enter to quit me!
+^Z
+[1]+  Stopped                 /challenge/run
+
+fg
+/challenge/run
+I'm back! Here's your flag:
+pwn.college{YN3aeMbvsQwssp9jCg6vK-SNrdr.QX2QDO0wCN3AzNzEzW}
+Don't forget to press Enter to quit me!
+
+Goodbye!
+```
+
+### New Learnings
+fg command can resume a suspended process.
+
+
+## Backgrounding processes
+
+This challenge's run needs you to suspend it, then resume it. Good luck!
+
+### Solve
+**Flag:**  pwn.college{oDvVAQZoilUJPn6hcpiZ4KJ18Hl.QX3QDO0wCN3AzNzEzW}
+
+run /challenge/run then sespended it using ctrl-Zand backgrounded it using bg commang launched another copy of /challenge/run.
+
+```bash
+/challenge/run
+
+I'll only give you the flag if there's already another copy of me running *and
+not suspended* in this terminal... Let's check!
+[1]+  Stopped                 /challenge/run
+^Z
+[1]+  Stopped                 /challenge/run
+
+/challenge/run
+
+I'll only give you the flag if there's already another copy of me running *and
+not suspended* in this terminal... Let's check!
+
+I found a second version of me, but it's suspended! Please resume it in the
+background with the 'bg' command, then run me again.
+
+bg
+[1]+ /challenge/run &
+
+Yay, I'm now running the background! Because of that, this text will probably
+overlap weirdly with the shell prompt. Don't panic; just hit Enter a few times
+to scroll this text out.
+
+/challenge/run
+
+Yay, I found another version of me running in the background! Here is the flag:
+pwn.college{oDvVAQZoilUJPn6hcpiZ4KJ18Hl.QX3QDO0wCN3AzNzEzW}
+```
+
+### New Learnings
+backgrounding a process using bg command.
+
+
+## Foregrounding processes
+
+Well, you can foreground a backgrounded process with fg just like you foreground a suspended process! This level will walk you through that!
+
+### Solve
+**Flag:**  pwn.college{kDpEkYijOPtPqjXUVeKcAQMIlm7.QX4QDO0wCN3AzNzEzW}
+
+suspended the program by ctrl-Z then backgrounded it by bg and then foregrounded it by fg.
+
+```bash
+/challenge/run
+To pass this level, you need to suspend me, resume the suspended process in the
+background, and *then* foreground it without re-suspending it! You can
+background me with Ctrl-Z (and resume me in the background with 'bg') or, if
+you're not ready to do that for whatever reason, just hit Enter and I'll exit!
+^Z
+[1]+  Stopped                 /challenge/run
+
+bg
+[1]+ /challenge/run &
+
+Yay, I'm now running the background! Because of that, this text will probably
+overlap weirdly with the shell prompt. Don't panic; just hit Enter a few times
+to scroll this text out. After that, resume me into the foreground with 'fg';
+I'll wait.
+
+fg
+/challenge/run
+YES! Great job! I'm now running in the foreground. Hit Enter for your flag!
+
+pwn.college{kDpEkYijOPtPqjXUVeKcAQMIlm7.QX4QDO0wCN3AzNzEzW}
+```
+
+### New Learnings
+foregrounding a process using fg command.
+
+
+## Starting backgrounded processes
+
+Now it's your turn to practice! Launch /challenge/run backgrounded for the flag!
+
+### Solve
+**Flag:**  pwn.college{ohugNfxG786zNNNG4SyUB7RxEfE.QX5QDO0wCN3AzNzEzW}
+
+running the /challenge/run in background using & argument as /challenge/run &.
+
+```bash
+/challenge/run &
+[1] 141
+
+Yay, you started me in the background! Because of that, this text will probably
+overlap weirdly with the shell prompt, but you're used to that by now...
+
+Anyways! Here is your flag!
+pwn.college{ohugNfxG786zNNNG4SyUB7RxEfE.QX5QDO0wCN3AzNzEzW}
+
+[1]+  Done                    /challenge/run
+```
+
+### New Learnings
+can run a process in backround using & argument.
+
+
+## Process exit codes
+
+In this challenge, you must retrieve the exit code returned by /challenge/get-code and then run /challenge/submit-code with that error code as an argument. Good luck!
+
+### Solve
+**Flag:**  pwn.college{smI0_RLlLA_NMxUpAiT2t9OQp9R.QX5YDO1wCN3AzNzEzW}
+
+run the /challenge/get-code and get the exit code by using ? variable and prepend it with $ as echo $? to read the exit code and then run the /challenge/submit-code with the exit code as /challenge/submit-code [EXIT_CODE] . 
+
+```bash
+/challenge/get-code
+Exiting with an error code!
+
+echo $?
+1
+
+/challenge/submit-code 1
+CORRECT! Here is your flag:
+pwn.college{smI0_RLlLA_NMxUpAiT2t9OQp9R.QX5YDO1wCN3AzNzEzW}
+```
+
+### New Learnings
+? variable. can be used to read the exit code of a program. And to read its value we have to prepend it with $.
