@@ -151,3 +151,153 @@ pwn.college{sWpb5HggKQ4wY7EknFux51KnEOc.0VOzMDOxwCN3AzNzEzW}
 ```
 
 ### New Learnings
+creating scripts with proper shebang.
+
+
+## Scripting with arguments
+
+For this challenge, you need to write a script at /home/hacker/solve.sh that:
+
+1. Takes two arguments
+2. Outputs them in REVERSE order (second argument first, then the first argument)
+   
+### Solve
+**Flag:**  pwn.college{QjXO1H1YigN0HrbZ2z94raNaulv.0VNzMDOxwCN3AzNzEzW}
+
+```bash
+cat > /home/hacker/solve.sh <<'EOF'
+> #!/bin/bash
+> echo "$2 $1"
+> EOF
+chmod +x /home/hacker/solve.sh
+/home/hacker/solve.sh pwn college
+college pwn
+/challenge/run
+Correct! Your script properly reversed the arguments.
+Here's your flag:
+pwn.college{QjXO1H1YigN0HrbZ2z94raNaulv.0VNzMDOxwCN3AzNzEzW}
+```
+
+### New Learnings
+arguments using special variables [$].
+
+
+## Scripting with Conditionals
+
+For this challenge, write a script at /home/hacker/solve.sh that:
+
+1. Takes one argument
+2. If the argument is "pwn", output "college"
+3. For any other input, output nothing
+   
+### Solve
+**Flag:**  pwn.college{cga_kLppsc0BGqFALn_5WitkWRp.0lNzMDOxwCN3AzNzEzW}
+
+```bash
+cat > /home/hacker/solve.sh <<'EOF'
+> if [ "$1" = "pwn" ]
+> then
+> echo "college"
+> fi
+> EOF
+chmod +x /home/hacker/solve.sh
+/home/hacker/solve.sh pwn 
+college 
+/challenge/run
+Correct! Your script properly handles all the conditions.
+Here's your flag:
+pwn.college{cga_kLppsc0BGqFALn_5WitkWRp.0lNzMDOxwCN3AzNzEzW}
+```
+
+### New Learnings
+using conditionals in scripting [if],[then].
+
+
+## Scripting with Default cases
+
+For this challenge, write a script at /home/hacker/solve.sh that:
+
+1. Takes one argument
+2. If the argument is "pwn", output "college"
+3. For any other input, output "nope"
+   
+### Solve
+**Flag:**  pwn.college{cObHUXNDwg2fiCyl3gQ1GtBF4eI.01NzMDOxwCN3AzNzEzW}
+
+```bash
+cat > /home/hacker/solve.sh <<'EOF'
+> #!/bin/bash
+> if [ "$1" == "pwn" ]
+> then
+> echo "college"
+> else
+> echo "nope"
+> fi
+> EOF
+chmod +x /home/hacker/solve.sh
+/challenge/run
+Correct! Your script properly handles the if/else conditions.
+Here's your flag:
+pwn.college{cObHUXNDwg2fiCyl3gQ1GtBF4eI.01NzMDOxwCN3AzNzEzW}
+```
+
+### New Learnings
+using conditional logic.
+
+
+## Scripting with multiple conditions
+
+For this challenge, write a script at /home/hacker/solve.sh that:
+
+1. Takes one argument
+2. If the argument is "hack", output "the planet"
+3. If the argument is "pwn", output "college"
+4. If the argument is "learn", output "linux"
+5. For any other input, output "unknown"
+
+### Solve
+**Flag:**  pwn.college{YAKkTQbCqCvmrRhNwWFAYPE7IL0.0FOzMDOxwCN3AzNzEzW}
+
+```bash
+cat > /home/hacker/solve.sh <<'EOF'
+> #!/bin/bash
+> if [ "$1" == "hack" ]
+then
+    echo "the planet"
+elif [ "$1" == "pwn" ]
+then
+    echo "college"
+elif [ "$1" == "learn" ]
+then
+    echo "linux"
+else
+    echo "unknown"
+fi
+> EOF
+chmod +x /home/hacker/solve.sh
+/challenge/run
+Correct! Your script properly handles all the conditions with elif.
+Here's your flag:
+pwn.college{YAKkTQbCqCvmrRhNwWFAYPE7IL0.0FOzMDOxwCN3AzNzEzW}
+```
+
+### New Learnings
+using multiple conditionals in scripts with [elif].
+
+
+## Reading shell scripts
+
+In this level, we will learn to read shell scripts. /challenge/run is a shell script that requires you to put in a secret password, but that password is hardcoded into the script iself! Read the script (using, say, cat), figure out the password, and get the flag!
+
+### Solve
+**Flag:**  pwn.college{UEhHxSQ6fZ0rWIOUu6INq8uNPhA.0lMwgDOxwCN3AzNzEzW}
+
+```bash
+/challenge/run
+hack the PLANET
+CORRECT! Your flag:
+pwn.college{UEhHxSQ6fZ0rWIOUu6INq8uNPhA.0lMwgDOxwCN3AzNzEzW}
+```
+
+### New Learnings
+reading shell scripts that require a secret password.
