@@ -1,4 +1,4 @@
-vvv# Chaining commands
+# Chaining commands
 
 ## Chaining with semicolons
 
