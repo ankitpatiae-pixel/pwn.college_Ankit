@@ -119,30 +119,43 @@ chmod u-rwx,g+x-rw,o+r-wx /challenge/pwn
 chmod u-rwx,g+x-rw,o+rx-w /challenge/pwn
 chmod u+w-rx,g+x-rw,o+rwx /challenge/pwn
 chmod u+w-rx,g-rwx,o+rwx /challenge/pwn
+chmod a+rwx /flag
+cat /flag
 pwn.college{ABFmmNRsPp9jkXLprhfzDIGHuzj.QXwEjN0wCN3AzNzEzW}
 ```
 
 ### New Learnings
-practice of chmod.
+practice of chmod using [+,-] .
 
 
 ## Permission setting practice
 
-If you get the permissions right eight times in a row, the challenge will let you chmod /flag to make it readable for yourself :-)
+This level extends the previous level by requesting more radical permission changes, which you will need = and ,-chaining to achieve. Good luck!
  
 ### Solve
-**Flag:**  pwn.college{ABFmmNRsPp9jkXLprhfzDIGHuzj.QXwEjN0wCN3AzNzEzW}
+**Flag:**  pwn.college{wAFODMCuiDcPFKP0LC-1GikNS5K.QXzETO0wCN3AzNzEzW}
+
+problem we'll solve 8 rounds of [chmod].
+
+### New Learnings
+practice in chmod using [=] instead of [+,-].
+
+
+## The SUID Bit
+
+In this challenge, we will execute programs with SUID permission. The "Set User ID" (SUID) permissions bit allows the user to run a program as the owner of that program's file.
+ 
+### Solve
+**Flag:**  pwn.college{YdV9jl7b0KxSZ3GocB4-eJxip6Z.QXzEjN0wCN3AzNzEzW}
 
 ```bash
-chmod u+rwx, g+rx-w, o+rx-w /challenge/pwn
-chmod u+rwx,g+rx-w,o+rx-w /challenge/pwn
-chmod a+rwx /challenge/pwn
-chmod u+x-rw,g+x-rw,o+rwx /challenge/pwn
-chmod u-rwx,g+x-rw,o+r-wx /challenge/pwn
-chmod u-rwx,g+x-rw,o+rx-w /challenge/pwn
-chmod u+w-rx,g+x-rw,o+rwx /challenge/pwn
-chmod u+w-rx,g-rwx,o+rwx /challenge/pwn
-pwn.college{ABFmmNRsPp9jkXLprhfzDIGHuzj.QXwEjN0wCN3AzNzEzW}
+chmod a+s /challenge/getroot
+/challenge/getroot
+SUCCESS! You have set the suid bit on this program, and it is running as root!
+Here is your shell...
+cat /flag
+pwn.college{YdV9jl7b0KxSZ3GocB4-eJxip6Z.QXzEjN0wCN3AzNzEzW}
 ```
 
 ### New Learnings
+i can now add +s permissions to files such that the program becomes executable with SUID.
