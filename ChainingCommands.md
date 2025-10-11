@@ -112,20 +112,19 @@ I can now use piping to redirect outputs of a script to another command.
 
 ## Executable shell scripts
 
-Same as last level, run /challenge/pwn and then /challenge/college,
-but this time in a shell script called x.sh, then run it with bash!
+Try that here! Make a shellscript that will invoke /challenge/solve, make it executable, and run it without explicitly invoking bash!
 
 ### Solve
 **Flag:**  pwn.college{46nny-kt9nqYeEwPHqOs0wfYFSC.QXxcDO0wCN3AzNzEzW}
 
-chained /challenge/pwn and /challenge/college and transfered it to shell x.sh as
-echo "/challenge/pwn; /challenge/college" > x.sh
+
 
 ```bash
-echo "/challenge/pwn; /challenge/college" > x.sh
-bash x.sh
-Great job, you've written your first shell script! Here is the flag:
-pwn.college{46nny-kt9nqYeEwPHqOs0wfYFSC.QXxcDO0wCN3AzNzEzW}
+echo "/challenge/solve" > flag.sh
+chmod +x /home/hacker/solve.sh
+./flag.sh
+Congratulations on your shell script execution! Your flag:
+pwn.college{gqxDNXn9gMEz6KicgEQeZp7GnbM.QX0cjM1wCN3AzNzEzW}
 ```
 
 ### New Learnings
